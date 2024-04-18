@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fusion/constants.dart';
+import 'package:fusion/screens/Compounder/homepage.dart';
 import 'package:fusion/services/login_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,7 +22,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final Widget logoWidget = CircleAvatar(
       backgroundColor: Colors.transparent,
       radius: (_focused || _focused2) ? 110.0 : 150.0,
@@ -69,12 +69,10 @@ class _LoginPageState extends State<LoginPage> {
       validator: (String? value) {
         if (value?.length == 0) {
           return 'Please enter username';
-        }
-        else if (value?.contains('@') == true) {
+        } else if (value?.contains('@') == true) {
           return 'Please enter username only';
         }
         return null;
-
       },
       autofillHints: [AutofillHints.username],
     ));
@@ -139,9 +137,8 @@ class _LoginPageState extends State<LoginPage> {
             bool complete = await auth.login(username ?? "", pass ?? "");
             TextInput.finishAutofillContext();
             if (complete == true) {
-              Navigator.pushReplacementNamed(context, "/landing");
+              Navigator.pushReplacementNamed(context, '/landing');
             }
-            Navigator.pushReplacementNamed(context, "/landing");
           }
         },
         // color: Colors.deepOrangeAccent,
@@ -162,6 +159,15 @@ class _LoginPageState extends State<LoginPage> {
       },
       child: Text(
         'Forgot password?',
+        style: TextStyle(color: Colors.black54, fontSize: 12),
+      ),
+    );
+    final compounder = TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, "/compounder/home");
+      },
+      child: Text(
+        'Login as Compounder',
         style: TextStyle(color: Colors.black54, fontSize: 12),
       ),
     );
@@ -207,7 +213,6 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(top:0.0,bottom: bottom),
                   child: forgotLabel,
                 ),
-
               ],
             ),
           ),
