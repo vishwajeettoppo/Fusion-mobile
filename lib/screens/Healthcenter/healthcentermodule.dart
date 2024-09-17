@@ -177,15 +177,23 @@ class _HealthCenterModState extends State<HealthCenterMod> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       InkWell(
-                        child: myContainer("Appointments/requests"),
+                        child: myContainer("Medical Profile"),
                         onTap: () {
                           Navigator.pushNamed(
-                              context, '/health_center/healthcenter',
+                              context, '/health_center/medicalprofile',
+                              arguments: data);
+                        },
+                      ),
+                        InkWell(
+                        child: myContainer("Announcements"),
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, '/health_center/announcement',
                               arguments: data);
                         },
                       ),
                       InkWell(
-                        child: myContainer("History"),
+                        child: myContainer("Health Records"),
                         onTap: () {
                           Navigator.pushNamed(context, '/health_center/history',
                               arguments: data);
@@ -204,6 +212,22 @@ class _HealthCenterModState extends State<HealthCenterMod> {
                         onTap: () {
                           Navigator.pushNamed(
                               context, '/health_center/viewschedule',
+                              arguments: data);
+                        },
+                      ),
+                      InkWell(
+                        child: myContainer("Pathologist Schedule"),
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, '/health_center/viewschedule',
+                              arguments: data);
+                        },
+                      ),
+                      InkWell(
+                        child: myContainer("Medical Reimbursement"),
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, '/health_center/reimbursement',
                               arguments: data);
                         },
                       ),
